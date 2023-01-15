@@ -9,7 +9,7 @@
 
 @media screen and (width < 1023px) {
   .profile {
-    max-width: 600px
+    max-width: 600px;
   }
 }
 

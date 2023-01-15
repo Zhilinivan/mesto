@@ -14,7 +14,7 @@
   @media screen and (width < 767px) {
     .popup__input-profession {
       margin: 30px 22px 0;
-      width: 238px;  
+      width: 238px;
       font-size: 14px;
       line-height: 17px;
     }
