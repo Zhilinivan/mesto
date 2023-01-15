@@ -1,8 +1,8 @@
-let profileEditButton = document.querySelector('.profile__name-group_edit-button');
+let profileEditButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = document.querySelector('.popup__close-button');
 let popup = document.querySelector('.popup');
 
-let profileName = document.querySelector('.profile__name-group_name');
+let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
 let formName = document.querySelector('.popup__input_data_name');
 let formProfession = document.querySelector('.popup__input_data_profession');

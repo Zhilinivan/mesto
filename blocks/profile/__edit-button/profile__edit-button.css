@@ -1,9 +1,9 @@
-.profile__name-group_edit-button {
+.profile__edit-button {
   margin: 15px 0 0;
   padding: 0;
   width: 24px;
   height: 24px;
-  background-image: url('../../../../images/pen.svg');
+  background-image: url('../../../images/pen.svg');
   background-position: center;
   border: 1px solid #FFFFFF;
   background-color: black;
@@ -11,14 +11,14 @@
   
 }
 
-.profile__name-group_edit-button:hover {
+.profile__edit-button:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: opacity 1s, ease, 1s;
 }
 
 @media screen and (width < 767px) {
-  .profile__name-group_edit-button {
+  .profile__edit-button {
     margin: 8px 0 0;
     width: 18px;
     height: 18px;
