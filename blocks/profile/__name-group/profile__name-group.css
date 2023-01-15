@@ -1,0 +1,11 @@
+.profile__name-group {
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+}
+
+@media screen and (width < 767px) {
+    .profile__name-group {
+      margin: 0 auto 14px;
+    }
+  }
