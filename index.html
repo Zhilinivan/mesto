@@ -12,79 +12,69 @@
   <div class="page">
     
     <header class="header">
-      <img class="header__logo" src="./images/logomesto.png" alt="Место Россия">
+      <img class="header__logo" src="./images/logo.svg" alt="Место Россия">
     </header>
     
    <main class="content">
   
-      <section class="popup">
-        <form class="popup__container">
-          <button class="popup__close"></button>
-          <h2 class="popup__name">Редактировать профиль</h2>
-          <input type="text" class="popup__input-name">
-          <input type="text" class="popup__input-profession">
-          <input type="submit" class="popup__save" value="Сохранить">
-        </form>
-      </section>
-    
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar.png" alt="Аватарка">
         <div class="profile__info">
           <div class="profile__name-group">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <div class="profile__edit-buttom"></div>
+            <h1 class="profile__name-group_name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__name-group_edit-button" aria-label="редактирование профиля"></button>
           </div>
           <p class="profile__profession">Исследователь океана</p>
         </div>
-        <button class="profile__add-buttom"></button>
+        <button type="button" class="profile__add-button" aria-label="добавление карточки"></button>
       </section>
 
       <section class="elements">
-        <div class="elements__element">
-          <img class="elements__image" src="./images/karachaevsk.png" alt="Карачаевск">
-          <div class="elements__bottom">
-            <h3 class="elements__title">Карачаевск</h3>
-            <div class="elements__like"></div>
+        <div class="elements__card">
+          <img class="elements__card_image" src="./images/karachaevsk.png" alt="Карачаевск">
+          <div class="elements__card_bottom">
+            <p class="elements__card_title">Карачаевск</p>
+            <button type="button" class="elements__card_like" aria-label="поставить лайк"></button>
           </div>
         </div>
 
-        <div class="elements__element">
-          <img class="elements__image" src="./images/elbrus.png" alt="Эльбрус">
-          <div class="elements__bottom">
-            <h3 class="elements__title">Гора Эльбрус</h3>
-            <div class="elements__like"></div>
+        <div class="elements__card">
+          <img class="elements__card_image" src="./images/elbrus.png" alt="Эльбрус">
+          <div class="elements__card_bottom">
+            <p class="elements__card_title">Гора Эльбрус</p>
+            <button type="button" class="elements__card_like" aria-label="поставить лайк"></button>
           </div>
         </div>
 
-        <div class="elements__element">
-          <img class="elements__image" src="./images/dombay.png" alt="Домбай">
-          <div class="elements__bottom">
-            <h3 class="elements__title">Домбай</h3>
-            <div class="elements__like"></div>
+        <div class="elements__card">
+          <img class="elements__card_image" src="./images/dombay.png" alt="Домбай">
+          <div class="elements__card_bottom">
+            <p class="elements__card_title">Домбай</p>
+            <button type="button" class="elements__card_like" aria-label="поставить лайк"></button>
           </div>
         </div>
 
-        <div class="elements__element">
-          <img class="elements__image" src="./images/dombay.png" alt="Домбай">
-          <div class="elements__bottom">
-            <h3 class="elements__title">Домбай</h3>
-            <div class="elements__like"></div>
+        <div class="elements__card">
+          <img class="elements__card_image" src="./images/dombay.png" alt="Домбай">
+          <div class="elements__card_bottom">
+            <p class="elements__card_title">Домбай</p>
+            <button type="button" class="elements__card_like" aria-label="поставить лайк"></button>
           </div>
         </div>
 
-        <div class="elements__element">
-          <img class="elements__image" src="./images/elbrus.png" alt="Эльбрус">
-          <div class="elements__bottom">
-            <h3 class="elements__title">Гора Эльбрус</h3>
-            <div class="elements__like"></div>
+        <div class="elements__card">
+          <img class="elements__card_image" src="./images/elbrus.png" alt="Эльбрус">
+          <div class="elements__card_bottom">
+            <p class="elements__card_title">Гора Эльбрус</p>
+            <button type="button" class="elements__card_like" aria-label="поставить лайк"></button>
           </div>
         </div>
 
-        <div class="elements__element">
-          <img class="elements__image" src="./images/karachaevsk.png" alt="Карачаевск">
-          <div class="elements__bottom">
-            <h3 class="elements__title">Карачаевск и карачаевск</h3>
-            <div class="elements__like"></div>
+        <div class="elements__card">
+          <img class="elements__card_image" src="./images/karachaevsk.png" alt="Карачаевск">
+          <div class="elements__card_bottom">
+            <p class="elements__card_title">Карачаевск и карачаевск</p>
+            <button type="button" class="elements__card_like" aria-label="поставить лайк"></button>
           </div>
         </div>
 
@@ -94,10 +84,22 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Жилин Иван</p>
     </footer>
+
+    <div class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button"></button>
+        <h2 class="popup__container_name">Редактировать профиль</h2>
+        <form class="popup__container_form" name="form">
+          <input type="text" required="Заполните это поле" class="popup__input popup__input_data_name" name="name">
+          <input type="text" required="Заполните это поле" class="popup__input popup__input_data_profession" name="profession">
+          <button type="submit" class="popup__save-button" aria-label="отправить форму">Сохранить</button>
+        </form>
+      </div>
+    </div>
   
   </div>
 
-  <script src="index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
 

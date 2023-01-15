@@ -1,11 +1,14 @@
 .profile__name-group {
-  margin: 0 0 16px;
+  margin: 0;
   padding: 0;
   display: flex;
+  justify-content: space-between;
+  column-gap: 18px;
 }
 
 @media screen and (width < 767px) {
-    .profile__name-group {
-      margin: 0 auto 14px;
-    }
+  .profile__name-group {
+    column-gap: 10px;
+    padding-left: 20px;  
   }
+}
