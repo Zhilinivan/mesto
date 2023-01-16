@@ -1,5 +1,5 @@
 .popup__name {
-  margin: 34px 0 54px 36px;
+  margin: 34px 0 24px 36px;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -10,7 +10,7 @@
 
 @media screen and (width < 767px) {
   .popup__name {
-    margin: 25px 0 75px 22px;
+    margin: 25px 0 45px 22px;
     font-size: 18px;
     line-height: 22px;
   }
