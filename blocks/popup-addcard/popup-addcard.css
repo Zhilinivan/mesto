@@ -1,5 +1,8 @@
-.popup {
-  display: none;
+.popup-addcard {
+  display: flex;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s, ease-in-out, 1s;
   justify-content: center;
   align-items: center;
   width: 100%;

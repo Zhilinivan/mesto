@@ -1,4 +1,4 @@
-.popup__save-button {
+.popup-addcard__save-button {
   margin: 48px 36px 37px;
   padding: 0;
   width: 358px;
@@ -16,14 +16,14 @@
   border: none;
 }
 
-.popup__save-button:hover {
+.popup-addcard__save-button:hover {
   opacity: 0.8;
   transition: opacity 1s, ease, 1s;
   cursor: pointer;
 }
 
 @media screen and (width < 767px) {
-    .popup__save-button {
+    .popup-addcard__save-button {
       margin: 45px 22px 25px;
       width: 238px;
       height: 46px;
