@@ -30,12 +30,12 @@ function openPopup(popupType) {
   popup = document.querySelector(popupType);
   popupCloseButton = popup.querySelector('.popup__close-button');
 
-  if (popup.classList.contains("popup__profile")) {
+  if (popup.classList.contains("popup_profile")) {
     
     document.querySelector('.popup__form_profile').reset();
   }
 
-  if (popup.classList.contains("popup__addcard")) {
+  if (popup.classList.contains("popup_addcard")) {
     document.querySelector('.popup__form_addcard').reset();
   }
   
@@ -52,13 +52,13 @@ function popupSubmit (evt) {
     
   evt.preventDefault();
 
-  if (popup.classList.contains("popup__profile")) {
+  if (popup.classList.contains("popup_profile")) {
     
     profileName.textContent = popupInputName.value;
     profileProfession.textContent = popupInputProfession.value;
   }
 
-  if (popup.classList.contains("popup__addcard")) {elementsList.prepend(createCard(popupCardInputName.value, popupCardInputSrc.value));}
+  if (popup.classList.contains("popup_addcard")) {elementsList.prepend(createCard(popupCardInputName.value, popupCardInputSrc.value));}
 
   closePopup();
 }  
@@ -97,9 +97,9 @@ elementsList.addEventListener("click", function (event) {
     cardTitle.textContent = cardClick.querySelector('.card__title').textContent; 
     cardImage.alt = 'Тут должно быть изображение ' + cardTitle.textContent;
 
-    openPopup('.popup__fullscreen');  
+    openPopup('.popup_fullscreen');  
   }
 }); 
 
-profileEditButton.addEventListener('click', function () { openPopup('.popup__profile'); });
-profileAddButton.addEventListener('click', function () { openPopup('.popup__addcard'); });
+profileEditButton.addEventListener('click', function () { openPopup('.popup_profile'); });
+profileAddButton.addEventListener('click', function () { openPopup('.popup_addcard'); });
