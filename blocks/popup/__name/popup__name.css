@@ -1,4 +1,4 @@
-.popup-addcard__name {
+.popup__name {
   margin: 34px 0 24px 36px;
   font-style: normal;
   font-weight: 900;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (width < 767px) {
-  .popup-addcard__name {
+  .popup__name {
     margin: 25px 0 45px 22px;
     font-size: 18px;
     line-height: 22px;

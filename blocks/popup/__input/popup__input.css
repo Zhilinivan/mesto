@@ -1,4 +1,4 @@
-.popup-addcard__input {
+.popup__input {
   margin: 30px 36px 0;
   padding: 0 0 13px;
   width: 358px;
@@ -11,12 +11,12 @@
   outline: none;
 }
 
-.popup-addcard__input:focus {
+.popup__input:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (width < 767px) {
-    .popup-addcard__input {
+    .popup__input {
       margin: 30px 22px 0;
       width: 238px;
     }

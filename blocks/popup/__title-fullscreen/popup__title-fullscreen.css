@@ -1,4 +1,4 @@
-.popup-cardfullscreen__title {
+.popup__title-fullscreen {
   margin: 10px 0 0;
   padding: 0;
   font-family: 'Inter';
@@ -9,5 +9,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 50%;
+  max-width: 75vw;
 }
