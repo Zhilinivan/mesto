@@ -8,13 +8,13 @@
     column-gap: 17px;
   }
   
-  @media screen and (width < 1023px) {
+  @media all and (width < 1023px) {
     .elements__list {
       max-width: 600px;
     }
   }
   
-  @media screen and (width < 767px) {
+  @media all and (width < 767px) {
     .elements__list {
       max-width: 282px;
     }

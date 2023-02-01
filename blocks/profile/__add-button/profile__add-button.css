@@ -19,13 +19,13 @@
   transition: opacity 1s, ease, 1s;
 }
 
-@media screen and (width < 1023px) {
+@media all and (width < 1023px) {
   .profile__add-button {
     width: 100px;
   }
 }
 
-@media screen and (width < 767px) {
+@media all and (width < 767px) {
   .profile__add-button {
     margin: 36px 0 0;
     width: 282px;

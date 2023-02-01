@@ -9,7 +9,7 @@
   color: #545454;
 }
 
-@media screen and (width < 767px) {
+@media all and (width < 767px) {
   .footer__copyright {
     font-size: 14px;
     line-height: 17px;

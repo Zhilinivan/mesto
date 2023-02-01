@@ -5,13 +5,13 @@
   display: flex;
 }
 
-@media screen and (width < 1023px) {
+@media all and (width < 1023px) {
   .profile {
     max-width: 600px;
   }
 }
 
-@media screen and (width < 767px) {
+@media all and (width < 767px) {
   .profile {
     max-width: 282px;
     flex-direction: column;

@@ -6,7 +6,7 @@
   border-radius: 60px;
 }
 
-@media screen and (width < 767px) {
+@media all and (width < 767px) {
   .profile__avatar {
     margin: 0;
     align-self: center;

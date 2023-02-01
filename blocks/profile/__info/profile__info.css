@@ -7,7 +7,7 @@
   row-gap: 16px;
 }
 
-@media screen and (width < 767px) {
+@media all and (width < 767px) {
   .profile__info {
     margin: 22px auto 0;
     row-gap: 14px;
