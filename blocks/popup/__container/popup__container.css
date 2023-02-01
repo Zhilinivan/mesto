@@ -8,7 +8,7 @@
   width: 430px;
 }
 
-@media all and (width < 767px) {
+@media screen and (max-width: 767px) {
   .popup__container {
     width: 282px;
   }

@@ -16,7 +16,7 @@
   transition: opacity 1s, ease, 1s;
 }
 
-@media all and (width < 767px) {
+@media screen and (max-width: 767px) {
   .popup__close-button {
     top: -36px;
     right: 0;

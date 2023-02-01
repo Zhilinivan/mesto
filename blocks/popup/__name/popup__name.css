@@ -8,7 +8,7 @@
   border-radius: 2px;
 }
 
-@media all and (width < 767px) {
+@media screen and (max-width: 767px) {
   .popup__name {
     margin: 25px 0 45px 22px;
     font-size: 18px;
