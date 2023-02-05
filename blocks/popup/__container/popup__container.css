@@ -8,6 +8,10 @@
   width: 430px;
 }
 
+.popup__container:hover {
+  cursor: auto;
+} 
+
 @media screen and (max-width: 767px) {
   .popup__container {
     width: 282px;

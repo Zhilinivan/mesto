@@ -7,3 +7,8 @@
   background-color: rgba(0, 0, 0, 0);
       
 }
+
+.popup__container-fullscreen:hover {
+  cursor: auto;
+
+}

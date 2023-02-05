@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./pages/index.css">
   <script defer src="./scripts/constants.js"></script>
   <script defer src="./scripts/index.js"></script>
+  <script defer src="./scripts/validate.js"></script>
   <title>Место</title>
 </head>
 
@@ -57,9 +58,11 @@
       <div class="popup__container">
         <button type="button" class="popup__close-button" aria-label="закрыть форму"></button>
         <h2 class="popup__name">Редактировать профиль</h2>
-        <form class="popup__form popup__form_profile" name="form">
-          <input type="text" required class="popup__input popup__input_data_name" name="name" placeholder="Имя">
-          <input type="text" required class="popup__input popup__input_data_profession" name="profession" placeholder="Профессия">
+        <form class="popup__form popup__form_profile" name="profile-form" novalidate>
+          <input type="text" required class="popup__input popup__input_name" minlength="2" maxlength="40" name="name" placeholder="Имя" autocomplete="off">
+          <div class="popup__error name-error"></div>
+          <input type="text" required class="popup__input popup__input_profession" minlength="2" maxlength="200" name="profession" placeholder="Профессия" autocomplete="off">
+          <div class="popup__error profession-error"></div>
           <button type="submit" class="popup__save-button" aria-label="отправить форму">Сохранить</button>
         </form>
       </div>
@@ -69,9 +72,11 @@
       <div class="popup__container">
         <button type="button" class="popup__close-button" aria-label="закрыть форму"></button>
         <h2 class="popup__name">Новое место</h2>
-        <form class="popup__form popup__form_addcard" name="form">
-          <input type="text" required class="popup__input popup__input_name" name="name" placeholder="Название">
-          <input type="url" required class="popup__input popup__input_src" name="link" placeholder="Ссылка на картинку">
+        <form class="popup__form popup__form_addcard" name="addcard-form" novalidate>
+          <input type="text" required class="popup__input popup__input_title" minlength="2" maxlength="30" name="title" placeholder="Название" autocomplete="off">
+          <div class="popup__error title-error"></div>
+          <input type="url" required class="popup__input popup__input_src" name="link" placeholder="Ссылка на картинку" autocomplete="off">
+          <div class="popup__error link-error"></div>
           <button type="submit" class="popup__save-button" aria-label="отправить форму">Создать</button>
         </form>
       </div>

@@ -8,6 +8,7 @@ const popupCardFullscreen = document.querySelector('.popup_fullscreen');
 const popupProfileForm = document.querySelector('.popup__form_profile');
 const popupCardForm = document.querySelector('.popup__form_addcard');
 
+
 const popupProfileCloseButton = popupProfile.querySelector('.popup__close-button');
 const popupCreateCardCloseButton = popupCreateCard.querySelector('.popup__close-button');
 const popupCardFullscreenCloseButton = popupCardFullscreen.querySelector('.popup__close-button');
@@ -15,20 +16,16 @@ const popupCardFullscreenCloseButton = popupCardFullscreen.querySelector('.popup
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 
-const popupProfileInputName = document.querySelector('.popup__input_data_name');
-const popupProfileInputProfession = document.querySelector('.popup__input_data_profession');
+const popupProfileInputName = document.querySelector('.popup__input_name');
+const popupProfileInputProfession = document.querySelector('.popup__input_profession');
 
-const popupCardInputName = document.querySelector('.popup__input_name');
+const popupCardInputTitle = document.querySelector('.popup__input_title');
 const popupCardInputSrc = document.querySelector('.popup__input_src');
 
 const elementsList = document.querySelector('.elements__list');
 
-const openPopup = popup => {
-  popup.classList.add('popup_opened');
-}
-const closePopup = popup => {
-  popup.classList.remove('popup_opened');
-}
+const closePopup = popup => {popup.classList.remove('popup_opened');}
+const openPopup = popup => {popup.classList.add('popup_opened');}
 
 const cardImage = document.querySelector('.popup__image-fullscreen');
 const cardTitle = document.querySelector('.popup__title-fullscreen');
@@ -36,13 +33,18 @@ const cardTitle = document.querySelector('.popup__title-fullscreen');
 initialCards.forEach(function (card) {elementsList.append(createCard(card.name, card.link));});
 
 function openPopupProfile () {
+
+  popupProfileInputName.value = profileName.textContent;
+  popupProfileInputProfession.value = profileProfession.textContent;
+  hideInputError(popupProfileForm, popupProfileInputName);
+  hideInputError(popupProfileForm, popupProfileInputProfession);
   openPopup(popupProfile);
-  popupProfileInputName.value= profileName.textContent; 
-  popupProfileInputProfession.value= profileProfession.textContent; 
 }
 
 function openPopupCreateCard() {
   popupCardForm.reset();
+  hideInputError(popupCardForm, popupCardInputTitle);
+  hideInputError(popupCardForm, popupCardInputSrc);
   openPopup(popupCreateCard);
 }
 
@@ -57,7 +59,7 @@ function popupProfileSubmit (evt) {
 function popupCreateCardSubmit (evt) {
     
   evt.preventDefault();
-  elementsList.prepend(createCard(popupCardInputName.value, popupCardInputSrc.value));
+  elementsList.prepend(createCard(popupCardInputTitle.value, popupCardInputSrc.value));
   closePopup(popupCreateCard);
 }  
 
@@ -99,12 +101,32 @@ elementsList.addEventListener("click", function (event) {
   }
 }); 
 
-profileEditButton.addEventListener('click', () => openPopup(popupProfile));
-profileAddButton.addEventListener('click', () => openPopup(popupCreateCard));
+profileEditButton.addEventListener('click', openPopupProfile);
+profileAddButton.addEventListener('click', openPopupCreateCard);
 
 popupProfileForm.addEventListener('submit', popupProfileSubmit);
 popupCardForm.addEventListener('submit', popupCreateCardSubmit);
 
-popupProfileCloseButton.addEventListener('click', () => closePopup(popupProfile));
-popupCreateCardCloseButton.addEventListener('click', () =>closePopup(popupCreateCard));
-popupCardFullscreenCloseButton.addEventListener('click', () =>closePopup(popupCardFullscreen));
+function checkCloseClick(evt, popup) {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {closePopup(popup);}; 
+}
+
+function checkCloseEsc(evt) {
+  if (evt.key === 'Escape') {
+    if (popupProfile.classList.contains('popup_opened')) {
+      closePopup(popupProfile); 
+      return;
+    };
+    if (popupCreateCard.classList.contains('popup_opened')) {
+      closePopup(popupCreateCard); 
+      return;
+    };
+    if (popupCardFullscreen.classList.contains('popup_opened')) {closePopup(popupCardFullscreen);};
+  }
+}
+
+document.addEventListener('keydown', checkCloseEsc);
+
+popupProfile.addEventListener("click", (evt) => checkCloseClick(evt, popupProfile));
+popupCreateCard.addEventListener("click", (evt) => checkCloseClick(evt, popupCreateCard));
+popupCardFullscreen.addEventListener("click", (evt) => checkCloseClick(evt, popupCardFullscreen));
