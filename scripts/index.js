@@ -26,6 +26,7 @@ const cardImage = document.querySelector('.popup__image-fullscreen');
 const cardTitle = document.querySelector('.popup__title-fullscreen');
 
 const cardTemplate = document.querySelector('.elements__template').content;
+const cardElement = cardTemplate.querySelector('.card');
 
 const closePopup = popup => {
   document.removeEventListener('keydown', checkCloseEsc);
@@ -76,15 +77,15 @@ function handleSubmitCardForm (evt) {
 }  
 
 function createCard(cardData) {
-
-  const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-  
-  cardElement.querySelector('.card__image').src = cardData.link;
-  cardElement.querySelector('.card__title').textContent = cardData.name;
-  cardElement.querySelector('.card__image').alt = 'Здесь должно быть изображение ' + cardData.name;
  
-  cardsContainer.addEventListener("click", checkCardClick);
-  return cardElement;
+  const newCard = cardElement.cloneNode(true);
+
+  newCard.querySelector('.card__image').src = cardData.link;
+  newCard.querySelector('.card__title').textContent = cardData.name;
+  newCard.querySelector('.card__image').alt = 'Здесь должно быть изображение ' + cardData.name;
+ 
+  newCard.addEventListener("click", checkCardClick);
+  return newCard;
 }
 
 function checkCardClick(event) {
