@@ -27,13 +27,13 @@ const cardTitle = document.querySelector('.popup__title-fullscreen');
 
 const cardTemplate = document.querySelector('.elements__template').content;
 
-initialCards.forEach(function (card) {cardsContainer.append(createCard(card));});
-
 const closePopup = popup => {
   document.removeEventListener('keydown', checkCloseEsc);
   popup.classList.remove('popup_opened');
 }
 const openPopup = popup => {popup.classList.add('popup_opened');}
+
+initialCards.forEach(function (card) {cardsContainer.append(createCard(card));});
 
 function openPopupProfile () {
   document.addEventListener('keydown', checkCloseEsc);
