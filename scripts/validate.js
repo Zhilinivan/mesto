@@ -51,4 +51,4 @@ function enableValidation(config){
   formList.forEach((popupForm) => {setEventListeners(config, popupForm); });
 };
 
-enableValidation(config);
+enableValidation(validationConfig);
