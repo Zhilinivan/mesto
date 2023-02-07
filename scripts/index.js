@@ -41,7 +41,7 @@ initialCards.forEach(function (card) {cardsContainer.append(createCard(card));})
 
 function setSubmitButtonState(buttonSubmit, isDisabled) {
   
-  if (isDisabled === popupProfile) {
+  if (!isDisabled) {
     buttonSubmit.disabled = false;
     buttonSubmit.classList.remove('popup__save-button_disabled');
   } else {
@@ -55,7 +55,7 @@ function openPopupProfile () {
   popupProfileInputProfession.value = profileProfession.textContent;
   hideInputError(validationConfig, popupProfileForm, popupProfileInputName);
   hideInputError(validationConfig, popupProfileForm, popupProfileInputProfession);
-  setSubmitButtonState(popupProfileFormSaveButton ,popupProfile);
+  setSubmitButtonState(popupProfileFormSaveButton, false);
   openPopup(popupProfile);
 }
 
@@ -63,7 +63,7 @@ function openPopupCreateCard() {
   popupCardForm.reset();
   hideInputError(validationConfig, popupCardForm, popupCardInputTitle);
   hideInputError(validationConfig, popupCardForm, popupCardInputSrc);
-  setSubmitButtonState(popupCardFormSaveButton, popupCreateCard);
+  setSubmitButtonState(popupCardFormSaveButton, true);
   openPopup(popupCreateCard);
 }
 
