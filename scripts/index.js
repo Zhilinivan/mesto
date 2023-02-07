@@ -39,13 +39,14 @@ const openPopup = popup => {
 
 initialCards.forEach(function (card) {cardsContainer.append(createCard(card));});
 
-const resetPopupSaveButton = popup => {
-  if (popup === popupProfile) {
-    popupProfileFormSaveButton.disabled = false;
-    popupProfileFormSaveButton.classList.remove('popup__save-button_disabled');
+function setSubmitButtonState(buttonSubmit, isDisabled) {
+  
+  if (isDisabled === popupProfile) {
+    buttonSubmit.disabled = false;
+    buttonSubmit.classList.remove('popup__save-button_disabled');
   } else {
-    popupCardFormSaveButton.disabled = true;
-    popupCardFormSaveButton.classList.add('popup__save-button_disabled');
+    buttonSubmit.disabled = true;
+    buttonSubmit.classList.add('popup__save-button_disabled');
   }
 }
 
@@ -54,7 +55,7 @@ function openPopupProfile () {
   popupProfileInputProfession.value = profileProfession.textContent;
   hideInputError(validationConfig, popupProfileForm, popupProfileInputName);
   hideInputError(validationConfig, popupProfileForm, popupProfileInputProfession);
-  resetPopupSaveButton(popupProfile);
+  setSubmitButtonState(popupProfileFormSaveButton ,popupProfile);
   openPopup(popupProfile);
 }
 
@@ -62,7 +63,7 @@ function openPopupCreateCard() {
   popupCardForm.reset();
   hideInputError(validationConfig, popupCardForm, popupCardInputTitle);
   hideInputError(validationConfig, popupCardForm, popupCardInputSrc);
-  resetPopupSaveButton(popupCreateCard);
+  setSubmitButtonState(popupCardFormSaveButton, popupCreateCard);
   openPopup(popupCreateCard);
 }
 
@@ -85,46 +86,34 @@ function createCard(cardData) {
 
   const newCard = cardElement.cloneNode(true);
 
-  const clickLike = newCard.querySelector('.card__like-button');
-  const clickDelete = newCard.querySelector('.card__delete-button');
-  const clickImage = newCard.querySelector('.card__image');
+  const buttonLike = newCard.querySelector('.card__like-button');
+  const buttonDelete = newCard.querySelector('.card__delete-button');
+  const image = newCard.querySelector('.card__image');
 
   newCard.querySelector('.card__image').src = cardData.link;
   newCard.querySelector('.card__title').textContent = cardData.name;
   newCard.querySelector('.card__image').alt = 'Здесь должно быть изображение ' + cardData.name;
  
-  clickLike.addEventListener('click', checkCardClick);
-  clickDelete.addEventListener('click', checkCardClick);
-  clickImage.addEventListener('click', checkCardClick);
+  buttonLike.addEventListener('click', () => {
+    
+    buttonLike.classList.toggle('card__like-button_active');
+  });
+  
+  buttonDelete.addEventListener('click', () => {
+
+    newCard.remove(); 
+  });
+  
+  image.addEventListener('click', () => {
+  
+    cardImage.src = image.src;  
+    cardTitle.textContent = newCard.querySelector('.card__title').textContent;  
+    cardImage.alt = 'Тут должно быть изображение ' + cardTitle.textContent; 
+    openPopup(popupCardFullscreen);
+  });
 
   return newCard;
 }
-
-function checkCardClick(event) { 
-
-  const deleteButtonClick = event.target.classList.contains('card__delete-button'); 
-  const likeButtonClick = event.target.classList.contains('card__like-button'); 
-  const cardClick = event.target.closest('.card'); 
-
-  if (deleteButtonClick) { 
-    event.target.closest('.card').remove(); 
-    return; 
-  }  
-
-  if (likeButtonClick) { 
-    event.target.classList.toggle('card__like-button_active');
-    return; 
-  }  
-
-  if (cardClick) { 
-    cardImage.src = cardClick.querySelector('.card__image').src;  
-    cardTitle.textContent = cardClick.querySelector('.card__title').textContent;  
-    cardImage.alt = 'Тут должно быть изображение ' + cardTitle.textContent; 
-    document.addEventListener('keydown', checkCloseEsc); 
-    openPopup(popupCardFullscreen);   
-  } 
-
-};    
 
 function checkCloseClick(evt, popup) {
   if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {closePopup(popup);};
