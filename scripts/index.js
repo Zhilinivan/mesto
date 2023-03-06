@@ -45,7 +45,7 @@ function openPopupProfile () {
   
   popupProfileInputName.value = profileName.textContent;
   popupProfileInputProfession.value = profileProfession.textContent;
-  validationPopupProfileForm.removeValidationErrors(popupProfileForm);
+  validationPopupProfileForm.removeValidationErrors();
   validationPopupProfileForm.disableSubmitButton(false);
   openPopup(popupProfile);
 };

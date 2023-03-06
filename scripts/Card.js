@@ -20,6 +20,8 @@ export class Card {
       
       return cardElement;
     }
+
+  _checkCloseEsc(evt) {if (evt.key === 'Escape') {this._closeFullscreenPopup()};}
     
   _openFullscreenPopup() {
     
@@ -28,16 +30,14 @@ export class Card {
     this._imageCardFullscreen.alt = 'Тут должно быть изображение ' + this._name;  
     this._popupCardFullscreen.classList.add('popup_opened'); 
 
-    document.addEventListener('keydown', (evt) => this._checkCloseEsc(evt)); 
+    document.addEventListener('keydown', this._listener = (evt) => this._checkCloseEsc(evt)); 
   } 
 
   _closeFullscreenPopup() { 
 
     this._popupCardFullscreen.classList.remove('popup_opened'); 
-    document.removeEventListener('keydown', (evt) => this._checkCloseEsc(evt)); 
-  } 
-
-  _checkCloseEsc(evt) {if (evt.key === 'Escape') {this._closeFullscreenPopup()};} 
+    document.removeEventListener('keydown', this._listener = (evt) => this._checkCloseEsc(evt)); 
+  }  
   
   _setEventListeners() {
     const buttonLike = this._element.querySelector('.card__like-button');
