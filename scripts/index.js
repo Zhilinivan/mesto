@@ -11,12 +11,6 @@ const popupProfileForm = document.querySelector('.popup__form_profile');
 const popupCardForm = document.querySelector('.popup__form_addcard');
 const popupFullscreen = document.querySelector('.popup_fullscreen');
 
-const imageCardFullscreen = document.querySelector('.popup__image-fullscreen');
-const titleCardFullscreen = document.querySelector('.popup__title-fullscreen');
-
-const popupProfileFormSaveButton = popupProfileForm.querySelector('.popup__save-button'); 
-const popupCardFormSaveButton = popupCardForm.querySelector('.popup__save-button'); 
-
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 
@@ -62,15 +56,6 @@ function openPopupCreateCard() {
   validationPopupCardForm.removeValidationErrors();
   validationPopupCardForm.disableSubmitButton(true);
   openPopup(popupCreateCard);
-}
-
-function openPopupFullscreen() {
-
-  imageCardFullscreen.src = this._link;  
-  titleCardFullscreen.textContent = this._name;  
-  imageCardFullscreen.alt = 'Тут должно быть изображение ' + this._name; 
-
-  popupFullscreen.classList.add('popup_opened');
 }
 
 function handleSubmitProfileForm (evt) {
