@@ -6,8 +6,6 @@ import {
   profileInfo,
   profileInput,
   cardsContainer,
-  profileEditButton,
-  profileAddButton,
 } from "../utils/constants.js";
 
 import { Card } from "../components/Card.js";
@@ -16,6 +14,9 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { FormValidator } from "../components/FormValidator.js";
+
+let profileEditButton = document.querySelector(".profile__edit-button");
+let profileAddButton = document.querySelector(".profile__add-button");
 
 const popupProfile = new PopupWithForm(
   ".popup_profile",
@@ -40,7 +41,6 @@ const validationPopupCardForm = new FormValidator(
 
 const cardList = new Section(
   {
-    items: initialCards,
     renderer: (item) => {
       const card = new Card(item, ".elements__template", openPopupFullscreen);
       cardList.addItem(card.generateCard());
@@ -49,15 +49,17 @@ const cardList = new Section(
   cardsContainer
 );
 
-cardList.renderItems();
+cardList.renderItems(initialCards);
 
 function openPopupFullscreen(link, name) {
   popupCardFullscreen.open(link, name);
 }
 
 function openPopupProfile() {
-  profileInput.name.value = userInfo.getUserInfo().name.textContent;
-  profileInput.profession.value = userInfo.getUserInfo().profession.textContent;
+  const userData = userInfo.getUserInfo();
+
+  profileInput.name.value = userData.name.textContent;
+  profileInput.profession.value = userData.profession.textContent;
   validationPopupProfileForm.removeValidationErrors();
   validationPopupProfileForm.disableSubmitButton(false);
   popupProfile.open();

@@ -4,7 +4,7 @@
   "description": "project ",
   "main": "index.js",
   "scripts": {
-    "build": "rd /s /q dist && webpack",
+    "build": "rimraf dist && webpack",
     "dev": "webpack serve"
   },
   "author": "Ivan \u001aZhilin",

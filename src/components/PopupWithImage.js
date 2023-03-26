@@ -14,8 +14,6 @@ export class PopupWithImage extends Popup {
     this._imageCardFullscreen.src = link;
     this._titleCardFullscreen.textContent = name;
     this._imageCardFullscreen.alt = "Тут должно быть изображение " + name;
-
-    document.addEventListener("keyup", this._handleEscClose);
-    this._popupSelector.classList.add("popup_opened");
+    super.open();
   }
 }
