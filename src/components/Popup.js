@@ -2,12 +2,11 @@ export class Popup {
   constructor(popupSelector) {
     this._popupSelector = document.querySelector(popupSelector);
   }
-
-  _handleEscClose(evt) {
+  _handleEscClose = (evt) => {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  };
 
   setEventListeners() {
     this._popupSelector.addEventListener("click", (evt) => {
