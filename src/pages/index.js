@@ -15,8 +15,8 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { FormValidator } from "../components/FormValidator.js";
 
-let profileEditButton = document.querySelector(".profile__edit-button");
-let profileAddButton = document.querySelector(".profile__add-button");
+const profileEditButton = document.querySelector(".profile__edit-button");
+const profileAddButton = document.querySelector(".profile__add-button");
 
 const popupProfile = new PopupWithForm(
   ".popup_profile",
