@@ -61,13 +61,13 @@ function openPopupProfile() {
   profileInput.name.value = userData.name.textContent;
   profileInput.profession.value = userData.profession.textContent;
   validationPopupProfileForm.removeValidationErrors();
-  validationPopupProfileForm.disableSubmitButton(false);
+  validationPopupProfileForm.toggleButtonState(false);
   popupProfile.open();
 }
 
 function openPopupCreateCard() {
   validationPopupCardForm.removeValidationErrors();
-  validationPopupCardForm.disableSubmitButton(true);
+  validationPopupCardForm.toggleButtonState(true);
   popupCreateCard.open();
 }
 
