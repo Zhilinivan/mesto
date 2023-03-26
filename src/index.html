@@ -3,21 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Место</title>
   </head>
 
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Место Россия" />
+        <img
+          class="header__logo"
+          src="<%=require('./images/logo.svg')%>"
+          alt="Место Россия"
+        />
       </header>
 
       <main class="content">
         <section class="profile">
           <img
             class="profile__avatar"
-            src="./images/avatar.png"
+            src="<%=require('./images/avatar.png')%>"
             alt="Аватарка"
           />
           <div class="profile__info">
@@ -168,10 +171,5 @@
         </div>
       </div>
     </div>
-
-    <script src="./scripts/constants.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
