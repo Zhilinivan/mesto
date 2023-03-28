@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Место</title>
+  <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="images/logo.9acae8482e5b5b17160c.svg"
+          alt="Место Россия"
+        />
+      </header>
+
+      <main class="content">
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="images/avatar.4b160972545ef3a41984.png"
+            alt="Аватарка"
+          />
+          <div class="profile__info">
+            <div class="profile__name-group">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button
+                type="button"
+                class="profile__edit-button"
+                aria-label="редактирование профиля"
+              ></button>
+            </div>
+            <p class="profile__profession">Исследователь океана</p>
+          </div>
+          <button
+            type="button"
+            class="profile__add-button"
+            aria-label="добавление карточки"
+          ></button>
+        </section>
+
+        <section class="elements">
+          <ul class="elements__list"></ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2022 Жилин Иван</p>
+      </footer>
+
+      <template class="elements__template">
+        <li class="card">
+          <img class="card__image" />
+          <div class="card__bottom">
+            <h2 class="card__title"></h2>
+            <button
+              type="button"
+              class="card__like-button"
+              aria-label="поставить лайк"
+            ></button>
+            <button
+              type="button"
+              class="card__delete-button"
+              aria-label="удалить карточку"
+            ></button>
+          </div>
+        </li>
+      </template>
+
+      <div class="popup popup_profile">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__close-button"
+            aria-label="закрыть форму"
+          ></button>
+          <h2 class="popup__name">Редактировать профиль</h2>
+          <form
+            class="popup__form popup__form_profile"
+            name="profile-form"
+            novalidate
+          >
+            <input
+              type="text"
+              required
+              class="popup__input popup__input_name"
+              minlength="2"
+              maxlength="40"
+              name="name"
+              placeholder="Имя"
+              autocomplete="off"
+            />
+            <div class="popup__error name-error"></div>
+            <input
+              type="text"
+              required
+              class="popup__input popup__input_profession"
+              minlength="2"
+              maxlength="200"
+              name="profession"
+              placeholder="Профессия"
+              autocomplete="off"
+            />
+            <div class="popup__error profession-error"></div>
+            <button
+              type="submit"
+              class="popup__save-button"
+              aria-label="отправить форму"
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup popup_addcard">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__close-button"
+            aria-label="закрыть форму"
+          ></button>
+          <h2 class="popup__name">Новое место</h2>
+          <form
+            class="popup__form popup__form_addcard"
+            name="addcard-form"
+            novalidate
+          >
+            <input
+              type="text"
+              required
+              class="popup__input popup__input_title"
+              minlength="2"
+              maxlength="30"
+              name="title"
+              placeholder="Название"
+              autocomplete="off"
+            />
+            <div class="popup__error title-error"></div>
+            <input
+              type="url"
+              required
+              class="popup__input popup__input_src"
+              name="link"
+              placeholder="Ссылка на картинку"
+              autocomplete="off"
+            />
+            <div class="popup__error link-error"></div>
+            <button
+              type="submit"
+              class="popup__save-button"
+              aria-label="отправить форму"
+            >
+              Создать
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup popup_fullscreen">
+        <div class="popup__container-fullscreen">
+          <button
+            type="button"
+            class="popup__close-button"
+            aria-label="закрыть попап"
+          ></button>
+          <img class="popup__image-fullscreen" src="#" alt="#" />
+          <p class="popup__title-fullscreen"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
