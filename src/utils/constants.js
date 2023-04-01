@@ -1,10 +1,3 @@
-import arhiz from "../images/arkhyz.jpg";
-import chelyabinsk from "../images/chelyabinsk-oblast.jpg";
-import ivanovo from "../images/ivanovo.jpg";
-import kamchatka from "../images/kamchatka.jpg";
-import holmogor from "../images/kholmogorsky-rayon.jpg";
-import baikal from "../images/baikal.jpg";
-
 export const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -14,41 +7,16 @@ export const validationConfig = {
   errorClass: "popup__error_visible",
 };
 
-export const initialCards = [
-  {
-    title: "Архыз",
-    link: arhiz,
-  },
-  {
-    title: "Челябинская область",
-    link: chelyabinsk,
-  },
-  {
-    title: "Иваново",
-    link: ivanovo,
-  },
-  {
-    title: "Камчатка",
-    link: kamchatka,
-  },
-  {
-    title: "Холмогорский район",
-    link: holmogor,
-  },
-  {
-    title: "Байкал",
-    link: baikal,
-  },
-];
-
 export const profileInfo = {
   name: document.querySelector(".profile__name"),
-  profession: document.querySelector(".profile__profession"),
+  about: document.querySelector(".profile__about"),
+  avatar: document.querySelector(".profile__avatar-image"),
 };
 
 export const profileInput = {
   name: document.querySelector(".popup__input_name"),
-  profession: document.querySelector(".popup__input_profession"),
+  about: document.querySelector(".popup__input_about"),
+  avatar: document.querySelector(".popup__input_avatarsrc"),
 };
 
 export const cardsContainer = ".elements__list";

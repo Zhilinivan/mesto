@@ -7,8 +7,12 @@ export class UserInfo {
     return this._info;
   }
 
-  setUserInfo({ name, profession }) {
+  setUserInfo({ name, about }) {
     this._info.name.textContent = name;
-    this._info.profession.textContent = profession;
+    this._info.about.textContent = about;
+  }
+
+  setUserAvatar({ avatar }) {
+    this._info.avatar.src = avatar;
   }
 }

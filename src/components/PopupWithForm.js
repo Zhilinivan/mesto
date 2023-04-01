@@ -4,7 +4,9 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this.formSelector = this._popupSelector.querySelector(".popup__form");
     this._formSubmit = formSubmit;
-    this._formValues = {};
+    this._formValues = [];
+    this._submitButton = this.formSelector.querySelector(".popup__save-button");
+    this._submitButtonValue = this._submitButton.textContent;
   }
 
   _getInputValues() {
@@ -12,8 +14,18 @@ export class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       this._formValues[input.name] = input.value;
     });
-
     return this._formValues;
+  }
+
+  delayOnSubmitButton() {
+    this._blockedButtonText = "Сохранение...";
+    this._submitButton.disabled = true;
+    this._submitButton.textContent = this._blockedButtonText;
+  }
+
+  delayOffSubmitButton() {
+    this._submitButton.disabled = false;
+    this._submitButton.textContent = this._submitButtonValue;
   }
 
   setEventListeners() {
@@ -24,7 +36,10 @@ export class PopupWithForm extends Popup {
   }
 
   close() {
-    if (this._popupSelector.classList.contains("popup_addcard")) {
+    if (
+      this._popupSelector.classList.contains("popup_addcard") ||
+      this._popupSelector.classList.contains("popup_avatar")
+    ) {
       this.formSelector.reset();
     }
     super.close();
