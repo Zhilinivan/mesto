@@ -2,15 +2,15 @@ import { Popup } from "./Popup.js";
 export class PopupWithForm extends Popup {
   constructor(popupSelector, formSubmit) {
     super(popupSelector);
-    this.formSelector = this._popupSelector.querySelector(".popup__form");
     this._formSubmit = formSubmit;
-    this._formValues = [];
+    this.formSelector = this._popupSelector.querySelector(".popup__form");
     this._submitButton = this.formSelector.querySelector(".popup__save-button");
     this._submitButtonValue = this._submitButton.textContent;
+    this._inputList = this.formSelector.querySelectorAll(".popup__input");
+    this._formValues = [];
   }
 
   _getInputValues() {
-    this._inputList = this.formSelector.querySelectorAll(".popup__input");
     this._inputList.forEach((input) => {
       this._formValues[input.name] = input.value;
     });
@@ -36,12 +36,7 @@ export class PopupWithForm extends Popup {
   }
 
   close() {
-    if (
-      this._popupSelector.classList.contains("popup_addcard") ||
-      this._popupSelector.classList.contains("popup_avatar")
-    ) {
-      this.formSelector.reset();
-    }
+    this.formSelector.reset();
     super.close();
   }
 }

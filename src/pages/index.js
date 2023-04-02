@@ -10,9 +10,9 @@ import {
 import { Api } from "../components/Api.js";
 import { Card } from "../components/Card.js";
 import { Section } from "../components/Section.js";
-import { Popup } from "../components/Popup.js";
-import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { FormValidator } from "../components/FormValidator.js";
 
@@ -37,7 +37,7 @@ const popupProfile = new PopupWithForm(
 
 const popupAvatar = new PopupWithForm(".popup_avatar", handleSubmitAvatarForm);
 
-const popupDeleteCard = new Popup(".popup_delete-card");
+const popupDeleteCard = new PopupWithConfirmation(".popup_delete-card");
 
 const popupCreateCard = new PopupWithForm(
   ".popup_addcard",
@@ -52,6 +52,7 @@ const validationPopupProfileForm = new FormValidator(
   validationConfig,
   popupProfile.formSelector
 );
+
 const validationPopupCardForm = new FormValidator(
   validationConfig,
   popupCreateCard.formSelector
@@ -65,7 +66,14 @@ const validationPopupChangeAvatar = new FormValidator(
 const cardList = new Section(
   {
     renderer: (item) => {
-      const card = new Card(item, ".elements__template", popupDeleteCard);
+      const card = new Card(
+        item,
+        ".elements__template",
+        popupDeleteCard,
+        myId,
+        popupCardFullscreen,
+        api
+      );
       cardList.addItem(card.generateCard());
     },
   },
